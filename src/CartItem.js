@@ -10,7 +10,25 @@ class CartItem extends React.Component{
         }
     }
     incqty = () =>{
-          console.log(this,this.state);
+         //set state form 1
+        // this.setState({
+         //    qty:this.state.qty+1
+         //});
+         //set state form 2
+         this.setState((prevstate)=>{
+             return{
+         qty:prevstate.qty+1
+             }
+         });
+    }
+    decqty=()=>{
+        const{qty}=this.state;
+        if(qty==0){
+            return;
+        }
+        this.setState({
+            qty:this.state.qty-1
+        });
     }
     render(){
         const {title, price, qty}=this.state;
@@ -21,15 +39,16 @@ class CartItem extends React.Component{
                </div>
                <div className="right">
                    <div style={{fontSize:25, color:'green'}}>{this.state.title}</div>
-                   <div style={{color:'green',fontSize:25}}>Rs{price}</div>
-                   <div  style={{color:'green',fontSize:25}}>Qty: 1</div>
+                   <div style={{color:'green',fontSize:25}}>Rs {price}</div>
+                   <div  style={{color:'green',fontSize:25}}>Qty: {qty}</div>
                    <div className="action-icon">
                     {/*Buttons*/}
                     <img alt='increase' 
                     className='action-icon' 
                     src='https://cdn-icons-png.flaticon.com/512/992/992651.png'
                     onClick={this.incqty}/>
-                    <img alt='decrease' className='action-icon' src='https://cdn-icons.flaticon.com/png/512/2740/premium/2740679.png?token=exp=1651691449~hmac=3f3695b6933e81e140f897cd65ebf3c6'/> 
+                    <img alt='decrease' className='action-icon' src='https://cdn-icons.flaticon.com/png/512/2740/premium/2740679.png?token=exp=1651691449~hmac=3f3695b6933e81e140f897cd65ebf3c6'
+                    onClick={this.decqty}/> 
                     <img alt='delete' className='action-icon' src='https://cdn-icons.flaticon.com/png/512/3405/premium/3405244.png?token=exp=1651691529~hmac=cf1d4f701db6eb7b8e6b3f2d0d935a06'/>   
                    </div>
                </div>

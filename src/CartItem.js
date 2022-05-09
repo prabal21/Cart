@@ -31,14 +31,14 @@ class CartItem extends React.Component{
         });
     }
     render(){
-        const {title, price, qty}=this.state;
+        const {title, price, qty}=this.props.product;
         return(
             <div className="cart-items">
                 <div className="left">
                 <img style={styles.image}></img>
                </div>
                <div className="right">
-                   <div style={{fontSize:25, color:'green'}}>{this.state.title}</div>
+                   <div style={{fontSize:25, color:'green'}}>{title}</div>
                    <div style={{color:'green',fontSize:25}}>Rs {price}</div>
                    <div  style={{color:'green',fontSize:25}}>Qty: {qty}</div>
                    <div className="action-icon">

@@ -91,7 +91,7 @@ getcarttotal=()=>{
      onDecreaseQuantity={ this.decreasequantity}
      onDelete={this.deleteproduct}
      />
-     <div style={{fontSize:30 ,color:'Purple', padding:10}}>Total: {this.getcarttotal()}</div>
+     <div style={{fontSize:30 ,color:'blue', padding:10}}>Total: {this.getcarttotal()}</div>
     </div>
   );
 }
